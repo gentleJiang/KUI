@@ -80,14 +80,12 @@ class FloatingView : View {
     private fun getMeasuredSize(defaultSize: Int, measureSpec: Int): Int {
         val specMode = MeasureSpec.getMode(measureSpec)
         val specSize = MeasureSpec.getSize(measureSpec)
-        val size: Int
-        size = when (specMode) {
+        return when (specMode) {
             MeasureSpec.UNSPECIFIED -> defaultSize
             MeasureSpec.EXACTLY -> specSize
             MeasureSpec.AT_MOST -> defaultSize
             else -> defaultSize
         }
-        return size
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
@@ -119,8 +117,8 @@ class FloatingView : View {
                 }
             }
             val baselineX = paintText.measureText(needShowText) / 2
-            val baselineY =
-                centerY + (paintText.fontMetrics.descent - paintText.fontMetrics.ascent) / 2 - paintText.fontMetrics.descent
+            val fontMetrics = paintText.fontMetrics
+            val baselineY = centerY + (fontMetrics.descent - fontMetrics.ascent) / 2 - fontMetrics.descent
             canvas.drawText(needShowText, centerX - baselineX, baselineY, paintText)
         }
     }

@@ -5,4 +5,13 @@
         <attr name="textSize" format="dimension"/>
         <attr name="textColor" format="color"/>
     </declare-styleable>
+    
+    <declare-styleable name="TimeoutProgress">
+        <attr name="backgroundColor" format="color"/>
+        <attr name="uncompletedColor" format="color"/>
+    </declare-styleable>
+    
+    <declare-styleable name="LoadingView">
+
+    </declare-styleable>
 </resources>

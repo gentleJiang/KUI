@@ -1,20 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity" android:orientation="vertical">
+    
+    <com.kui.view.TimeoutProgress
+        android:id="@+id/pg"
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:padding="2dp"/>
     
     <com.kui.view.FloatingView
         android:id="@+id/fv"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:padding="10dp"
         app:text="Hello World!"
         app:textColor="#ff0000"
+        android:padding="10dp"
         app:textSize="20sp"
     />
+    
+    <com.kui.view.LoadingView
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="5dp"/>
 
-</FrameLayout>
+</LinearLayout>

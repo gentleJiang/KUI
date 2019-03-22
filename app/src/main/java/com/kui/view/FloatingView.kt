@@ -6,10 +6,14 @@ import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Paint
 import android.util.AttributeSet
+import android.util.Log
 import android.view.MotionEvent
 import android.view.View
 
-
+/**
+ * The description of FloatingView
+ * The view is used to show above all the view,it can be dragged and clicked.
+ */
 class FloatingView : View {
     companion object {
         private const val DEFAULT_WIDTH = 100
@@ -18,6 +22,7 @@ class FloatingView : View {
         private const val DEFAULT_TEXT_COLOR = 0xFFFFFF
     }
 
+    //All of the attributes
     private var attrText: String? = ""
     private var attrTextSize: Float = 0f
     private var attrTextColor: Int = 0
@@ -89,6 +94,7 @@ class FloatingView : View {
     }
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
+        super.onMeasure(widthMeasureSpec, heightMeasureSpec)
         setMeasuredDimension(
             getMeasuredSize(DEFAULT_WIDTH, widthMeasureSpec),
             getMeasuredSize(DEFAULT_HEIGHT, heightMeasureSpec)
@@ -99,8 +105,8 @@ class FloatingView : View {
         val contentWidth = width - paddingLeft - paddingRight
         val contentHeight = height - paddingTop - paddingBottom
         val circleRadius = (Math.min(contentWidth, contentHeight)) / 2f
-        val centerX: Float = left + paddingLeft + contentWidth / 2f
-        val centerY: Float = top + paddingTop + contentHeight / 2f
+        val centerX: Float = paddingLeft + contentWidth / 2f
+        val centerY: Float = paddingTop + contentHeight / 2f
         canvas.drawCircle(centerX, centerY, circleRadius, paintBackground)
 
         attrText?.let {

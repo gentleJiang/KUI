@@ -13,5 +13,11 @@ class MainActivity : AppCompatActivity() {
         fv.setOnClickListener {
             Toast.makeText(this, "click", Toast.LENGTH_LONG).show()
         }
+
+        pg.setOnTimeoutListener{
+            Toast.makeText(this, "timeout", Toast.LENGTH_LONG).show()
+            pg.reset()
+        }
+        pg.start(60)
     }
 }
